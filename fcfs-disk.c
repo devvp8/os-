@@ -1,29 +1,15 @@
-#include<stdio.h>
-#include <stdlib.h>
-void main()
-{
-  int n,i,j,k,sum=0,seek=0,diff;
-  int d[20];
-  float avg;
-  printf("Enter the no of requests:\n");
-  scanf("%d",&n);
-  printf("Enter the requests:\n");
-  for(i=1;i<=n;i++)
-  {
-    scanf("%d",&d[i]);
-  }
-  printf("Enter the initial head position:\n");
-  scanf("%d",&k);
-  d[0]=k;
-  printf("\n");
-  for(j=0;j<=n-1;j++)
-  {
-    diff=abs(d[j+1]-d[j]);
-    seek+=diff;
-    printf("Move from %d to %d with Seek %d\n",d[j],d[j+1],diff);
-  }
-  printf("\nTotal Seek Time is %d\t",seek);
-  avg=seek/(float)n;
-  printf("\nAverage Seek Time is %f\t",avg);
-  return 0;
-}
+#include <stdio.h>
+void main() {
+    int st=0,n,i,data[100];
+    printf("Enter no. of tracks ");
+    scanf("%d",&n);
+    printf("enter head ");
+    scanf("%d",&data[0]);
+    for(i=1;i<=n;i++)
+    {
+        printf("Enter track %d ",i);
+        scanf("%d",&data[i]);
+        st+=abs(data[i]-data[i-1]);
+    }
+    printf("seek time is %d",st);
+} 
